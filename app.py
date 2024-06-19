@@ -14,7 +14,7 @@ def get_menu_message(file_path, today):
         if len(dishes) > 2:
             selected_dish = random.choice(dishes[1:3]).strip()  # 두 번째와 세 번째 요리명에서 랜덤 선택
             selected_dish_cleaned = re.sub(r'\s*\(.*?\)\s*', '', selected_dish)
-            return f"{st.session_state['name']}님 안녕하세요, {selected_dish_cleaned} 맛있게 드셨나요?"
+            return f"OOO 님 안녕하세요, {selected_dish_cleaned} 맛있게 드셨나요?"
         else:
             return "오늘의 두 번째 또는 세 번째 메뉴 정보를 찾을 수 없습니다."
     else:
@@ -27,7 +27,7 @@ def get_timetable_message(file_path, today):
         # '수업내용' 열에서만 랜덤하게 선택
         subjects = timetable_today['수업내용'].values
         selected_subject = random.choice(subjects).strip()
-        return f"{st.session_state['name']}님, 오늘 {selected_subject} 수업은 어땠나요?"
+        return f" OOO 님, 오늘 {selected_subject} 수업은 어땠나요?"
     else:
         return "오늘의 시간표 정보를 찾을 수 없습니다."
     
@@ -40,7 +40,7 @@ def get_img_with_hover_markdown(file_path, message):
     <style>
     .character-container {{
         position: fixed;
-        bottom: 30vh;
+        bottom: 10vh;
         left: 10px;
         z-index: 10000;
         display: flex;
@@ -132,12 +132,6 @@ st.set_page_config(layout="wide")
 
 # 현재 날짜
 today = datetime.now()
-
-# 이름 입력 받기
-if 'name' not in st.session_state:
-    st.session_state['name'] = st.text_input("이름을 입력하세요:", value="사용자")
-else:
-    st.text(f"안녕하세요, {st.session_state['name']}님!")
 
 # CSV 파일 경로
 food_file_path = 'food.csv'
