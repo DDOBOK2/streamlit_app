@@ -140,8 +140,8 @@ else:
     st.text(f"안녕하세요, {st.session_state['name']}님!")
 
 # CSV 파일 경로
-food_file_path = 'C:\\Users\\user\\Desktop\\streamlit_app\\food.csv'
-timetable_file_path = 'C:\\Users\\user\\Desktop\\streamlit_app\\timetable.csv'
+food_file_path = 'food.csv'
+timetable_file_path = 'timetable.csv'
 
 # 랜덤으로 음식 메뉴 또는 시간표 메시지를 선택
 if random.choice([True, False]):
